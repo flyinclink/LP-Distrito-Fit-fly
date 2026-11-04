@@ -1,210 +1,164 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tema="a">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Distrito Fitness | Roupas e Acessórios Fitness</title>
 <meta name="description" content="Distrito Fitness: roupas e acessórios fitness femininos e masculinos. Escolha sua peça e peça direto pelo WhatsApp.">
+<meta name="theme-color" content="#0C0F08">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  /* Teste de tema: escuros ?tema=a, b, c | claros ?tema=d, e, f */
+  (function(){ try{ var t=new URLSearchParams(location.search).get("tema"); if(t) document.documentElement.dataset.tema=t; }catch(e){} })();
+</script>
 <style>
 :root{
   /* ===== CORES DA MARCA (tiradas da logo) ===== */
-  --preto:#000000;
   --verde:#566222;
   --verde-escuro:#3B4417;
-  --verde-claro:#E8EBDA;
+  --verde-vivo:#7A8B30;      /* verde da marca um pouco mais claro, pra ler bem no escuro */
   --verde-medio:#A9B47A;
-  --fundo:#F4F4F2;
   --branco:#FFFFFF;
-  --texto:#111111;
-  --texto-suave:#6B6B66;
-  --borda:#E4E4E0;
   --raio:22px;
-  --sombra:0 10px 30px rgba(0,0,0,.08);
-  --sombra-forte:0 18px 45px rgba(0,0,0,.16);
 }
+/* ===== TEMAS ESCUROS (teste) ===== */
+/* A: preto esverdeado */
+html[data-tema="a"]{--fundo:#0B0E07;--card:#141A0E;--card-2:#1B2213;--borda:#273019;--texto:#F1F3EC;--texto-suave:#9CA38E;--vaga-1:#182011;--vaga-2:#1D2615}
+/* B: verde floresta bem escuro */
+html[data-tema="b"]{--fundo:#141B0C;--card:#1D2614;--card-2:#25301A;--borda:#334022;--texto:#F1F3EC;--texto-suave:#A4AC92;--vaga-1:#1F2915;--vaga-2:#25311A}
+/* C: grafite puxado pro verde */
+html[data-tema="c"]{--fundo:#1C1F19;--card:#262A22;--card-2:#2E332A;--borda:#3A4034;--texto:#F2F3EF;--texto-suave:#A6AB9D;--vaga-1:#272C22;--vaga-2:#2D3327}
+/* valores comuns dos temas escuros */
+html{--destaque:var(--verde-medio);--vaga-num:var(--verde-vivo);--vaga-etiqueta:rgba(0,0,0,.35);--rodape-bg:rgba(0,0,0,.2);--cta-bg:var(--card-2);--sombra-card:0 14px 40px rgba(0,0,0,.35);--brilho:.22}
+
+/* ===== TEMAS CLAROS (teste) ===== */
+/* D: off-white neutro (igual à referência) */
+html[data-tema="d"]{--fundo:#F4F4F1;--card:#FFFFFF;--card-2:#FFFFFF;--borda:#E3E4DE;--texto:#111311;--texto-suave:#63675C;--vaga-1:#E4E7D8;--vaga-2:#ECEEE3}
+/* E: verde sálvia claro */
+html[data-tema="e"]{--fundo:#E7EBDC;--card:#F5F7EF;--card-2:#F5F7EF;--borda:#D3D9C2;--texto:#141810;--texto-suave:#5D6650;--vaga-1:#D5DCC2;--vaga-2:#DEE4CE}
+/* F: areia / bege quente */
+html[data-tema="f"]{--fundo:#EFEBE2;--card:#FAF8F3;--card-2:#FAF8F3;--borda:#DFD9CC;--texto:#15140F;--texto-suave:#6A655A;--vaga-1:#E3DECF;--vaga-2:#EBE7DB}
+html[data-tema="d"],html[data-tema="e"],html[data-tema="f"]{--destaque:var(--verde);--vaga-num:var(--verde);--vaga-etiqueta:rgba(255,255,255,.75);--rodape-bg:rgba(0,0,0,.03);--cta-bg:#0B0E07;--sombra-card:0 12px 32px rgba(0,0,0,.10);--brilho:.10}
+
+/* Logo: versão clara no fundo escuro, original no fundo claro */
+.logo-p-claro{display:none}
+html[data-tema="d"] .logo-p-claro,html[data-tema="e"] .logo-p-claro,html[data-tema="f"] .logo-p-claro{display:block}
+html[data-tema="d"] .logo-p-escuro,html[data-tema="e"] .logo-p-escuro,html[data-tema="f"] .logo-p-escuro{display:none}
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--fundo);color:var(--texto);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--fundo);color:var(--texto);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:radial-gradient(900px 500px at 85% -10%,rgba(86,98,34,var(--brilho)),transparent 60%),radial-gradient(700px 500px at -10% 40%,rgba(86,98,34,calc(var(--brilho)/2)),transparent 60%);background-repeat:no-repeat}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .container{width:min(1180px,100% - 32px);margin-inline:auto}
 
 /* ===== Tipografia de títulos (inspirada na logo: pesada, larga e inclinada) ===== */
 .titulo{font-family:Archivo,sans-serif;font-weight:900;font-style:italic;font-stretch:125%;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
-.titulo-secao{font-size:clamp(20px,2.4vw,28px);margin:0 0 20px}
-.titulo-secao span{color:var(--verde)}
 
 /* ===== Barra de aviso ===== */
-.aviso{background:var(--preto);color:#fff;text-align:center;font-size:12px;font-weight:600;letter-spacing:.04em;padding:8px 16px;text-transform:uppercase}
-.aviso b{color:var(--verde-medio)}
+.aviso{background:var(--verde);color:#fff;text-align:center;font-size:12px;font-weight:600;letter-spacing:.04em;padding:8px 16px;text-transform:uppercase}
+.aviso b{color:#fff;text-decoration:underline;text-underline-offset:3px}
 
 /* ===== Menu flutuante ===== */
 .topo{position:sticky;top:12px;z-index:50;margin-top:12px}
-.menu{display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--borda);border-radius:18px;padding:10px 12px 10px 18px;box-shadow:var(--sombra)}
-.menu .logo img{height:38px;width:auto;mix-blend-mode:multiply}
+.menu{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;background:color-mix(in srgb,var(--card) 85%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--borda);border-radius:18px;padding:10px 12px 10px 18px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.menu .logo img{height:38px;width:auto}
+.menu .logo{display:flex}
 .menu nav{display:flex;gap:26px}
 .menu nav a{font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--texto-suave);transition:color .2s}
-.menu nav a:hover{color:var(--verde)}
+.menu nav a:hover{color:var(--destaque)}
 .menu-acoes{display:flex;align-items:center;gap:8px}
 .btn-menu{display:none;background:none;border:0;width:40px;height:40px;border-radius:12px;cursor:pointer}
-.btn-menu span{display:block;width:20px;height:2px;background:var(--preto);margin:4px auto;border-radius:2px}
+.btn-menu span{display:block;width:20px;height:2px;background:var(--texto);margin:4px auto;border-radius:2px}
 
 /* ===== Botões em pílula ===== */
 .pilula{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font-family:Archivo,sans-serif;font-weight:800;font-stretch:115%;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:11px 20px;border-radius:999px;background:var(--verde);color:#fff;transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
-.pilula:hover{transform:translateY(-2px);background:var(--verde-escuro);box-shadow:0 8px 20px rgba(86,98,34,.35)}
-.pilula.preta{background:var(--preto)}
-.pilula.preta:hover{background:#222;box-shadow:0 8px 20px rgba(0,0,0,.3)}
-.pilula.branca{background:#fff;color:var(--preto)}
-.pilula.branca:hover{background:var(--verde-claro)}
+.pilula:hover{transform:translateY(-2px);background:var(--verde-vivo);box-shadow:0 8px 22px rgba(122,139,48,.35)}
+.pilula.branca{background:#fff;color:#0B0E07}
+.pilula.branca:hover{background:var(--verde-medio)}
+.pilula.contorno{background:rgba(0,0,0,.25);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7);backdrop-filter:blur(6px)}
+.pilula.contorno:hover{background:rgba(255,255,255,.12)}
 .pilula.pequena{padding:8px 14px;font-size:11px}
 .pilula svg{width:16px;height:16px;flex:none}
-.botoes{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:16px}
+.botoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 
 /* ===== Cards com foto (banners) ===== */
-.card-foto{position:relative;overflow:hidden;border-radius:var(--raio);background:linear-gradient(140deg,var(--verde) 0%,var(--verde-escuro) 60%,#141708 100%);box-shadow:var(--sombra);isolation:isolate;min-height:320px;display:flex;align-items:flex-end}
+.card-foto{position:relative;overflow:hidden;border-radius:var(--raio);background:var(--card);border:1px solid var(--borda);box-shadow:var(--sombra-card);isolation:isolate;min-height:320px;display:flex;align-items:flex-end}
 .card-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s ease}
 .card-foto:hover img{transform:scale(1.04)}
-.card-foto::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72) 100%)}
+.card-foto::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.78) 100%)}
 .card-foto .conteudo{padding:28px;color:#fff;width:100%}
 .card-foto h2,.card-foto h3{font-size:clamp(26px,3.2vw,40px);text-shadow:0 2px 18px rgba(0,0,0,.35)}
-.card-foto p{font-size:13px;opacity:.9;margin-top:8px;max-width:300px}
-.card-foto.direita .conteudo{text-align:right}
-.card-foto.direita .botoes{align-items:flex-end}
-.card-foto.centro .conteudo{text-align:center}
-.card-foto.centro .botoes{align-items:center}
-/* fundo de reserva quando a foto não carrega */
+.card-foto p{font-size:13px;opacity:.88;margin-top:8px;max-width:320px}
+
 /* ===== Espaço reservado para foto (aparece enquanto a foto não é colocada) ===== */
-.vaga-foto{position:absolute;inset:0;z-index:-2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;
-  background:repeating-linear-gradient(-45deg,#D9DDC8 0 14px,#E3E6D4 14px 28px);color:var(--verde-escuro);border:2px dashed var(--verde-medio);border-radius:inherit}
-.vaga-foto b{font-family:Archivo,sans-serif;font-weight:900;font-style:italic;font-stretch:125%;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+.vaga-foto{position:absolute;inset:0;z-index:-2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;text-align:center;padding:24px 20px;
+  background:repeating-linear-gradient(-45deg,var(--vaga-1) 0 14px,var(--vaga-2) 14px 28px);color:var(--destaque);border-radius:inherit}
+.vaga-foto b{font-family:Archivo,sans-serif;font-weight:900;font-style:italic;font-stretch:125%;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase;color:var(--vaga-num)}
 .vaga-foto span{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
-.vaga-foto small{font-size:11px;background:rgba(255,255,255,.7);padding:3px 8px;border-radius:6px;font-family:ui-monospace,monospace}
-.card-foto .vaga-foto{justify-content:flex-start;padding-top:clamp(28px,8%,70px)}
-.card-foto:has(.vaga-foto)::after{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55) 100%)}
-.produto .vaga-foto{z-index:0;border-radius:0}
-.produto .vaga-foto b{font-size:26px}
-.look-item .mini{position:relative}
-.look-item .vaga-foto{z-index:0;padding:4px;gap:0}
-.look-item .vaga-foto b{font-size:16px}
-.look-item .vaga-foto span,.look-item .vaga-foto small{display:none}
+.vaga-foto small{font-size:11px;background:var(--vaga-etiqueta);color:var(--texto-suave);padding:3px 8px;border-radius:6px;font-family:ui-monospace,monospace}
+.card-foto:has(.vaga-foto)::after{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.5) 100%)}
 
 /* ===== Hero ===== */
 .hero{margin-top:24px}
-.hero .card-foto{min-height:clamp(420px,62vh,620px)}
-.hero .card-foto::after{background:linear-gradient(90deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 75%),linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%)}
-.hero .selo{background:var(--verde);border-color:var(--verde)}
+.hero .card-foto{min-height:clamp(440px,64vh,640px)}
+.hero .card-foto::after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 75%),linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%)}
+.hero .vaga-foto{padding-top:clamp(28px,6%,60px)}
 .hero h1{font-size:clamp(40px,7vw,86px);text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .hero h1 span{color:var(--verde-medio)}
 .hero .conteudo{padding:clamp(24px,4vw,48px)}
 .hero p{font-size:15px;max-width:420px}
-.hero .botoes{flex-direction:row;flex-wrap:wrap}
-.selo{display:inline-block;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+.selo{display:inline-block;background:var(--verde);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px}
 
-/* ===== Vitrine (carrossel de produtos) ===== */
-.secao{margin-top:64px}
-.cabecalho-secao{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-.setas{display:flex;gap:8px;margin-bottom:20px}
-.seta{width:40px;height:40px;border-radius:50%;border:1px solid var(--borda);background:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--sombra);transition:background .2s}
-.seta:hover{background:var(--verde-claro)}
-.seta svg{width:18px;height:18px}
-.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.filtro{border:1px solid var(--borda);background:#fff;border-radius:999px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;color:var(--texto-suave);transition:all .2s}
-.filtro.ativo,.filtro:hover{background:var(--preto);color:#fff;border-color:var(--preto)}
-.trilho{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,23%,270px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 24px;margin:0 -4px;scrollbar-width:none}
-.trilho::-webkit-scrollbar{display:none}
-.produto{scroll-snap-align:start;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-.produto:hover{transform:translateY(-4px);box-shadow:var(--sombra-forte)}
-.produto .foto{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#ECEDE6,#DCDFCF);overflow:hidden}
-.produto .foto img{width:100%;height:100%;object-fit:cover}
-.produto .tag{position:absolute;top:10px;left:10px;background:var(--preto);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px}
-.produto .tag.verde{background:var(--verde)}
-.produto .info{padding:14px 14px 16px;display:flex;flex-direction:column;gap:2px;flex:1}
-.produto h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
-.produto .cor{font-size:12px;color:var(--texto-suave)}
-.produto .linha{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px}
-.produto .preco{font-weight:700;font-size:15px}
-.produto .preco small{display:block;font-size:11px;font-weight:500;color:var(--texto-suave)}
-.vazio{padding:40px;color:var(--texto-suave)}
-
-/* ===== Grades bento ===== */
-.bento{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.bento .alto{grid-row:span 2;min-height:660px}
-.bento .card-foto{min-height:320px}
-.largo .card-foto{min-height:clamp(340px,44vw,480px)}
+/* ===== Seções ===== */
+.secao{margin-top:56px}
 
 /* ===== Mosaico de 4 fotos ===== */
 .mosaico{display:grid;grid-template-columns:1.1fr 1fr 1fr;grid-template-rows:340px 340px;gap:18px}
 .mosaico .card-foto{min-height:0}
 .mosaico .card-foto h3{font-size:clamp(22px,2.3vw,32px);overflow-wrap:anywhere}
 .mosaico .alto h3{font-size:clamp(26px,3vw,40px)}
-.mosaico .card-foto .vaga-foto{padding-top:24px}
 .mosaico .alto{grid-row:span 2}
 .mosaico .largo2{grid-column:span 2}
-@media (max-width:760px){
-  .mosaico{grid-template-columns:1fr 1fr;grid-template-rows:none}
-  .mosaico .alto,.mosaico .largo2{grid-column:span 2;grid-row:auto}
-  .mosaico .alto{min-height:460px}
-  .mosaico .card-foto{min-height:300px}
-}
-@media (max-width:480px){
-  .mosaico{grid-template-columns:1fr}
-  .mosaico .card-foto,.mosaico .alto,.mosaico .largo2{grid-column:auto;min-height:340px}
-  .mosaico .alto{min-height:440px}
-}
-
-/* ===== Monte seu look ===== */
-.look{display:grid;grid-template-columns:1.15fr 1fr;border-radius:var(--raio);overflow:hidden;background:#fff;box-shadow:var(--sombra)}
-.look .card-foto{border-radius:0;box-shadow:none;min-height:520px}
-.look .card-foto::after{display:none}
-.look-lado{display:flex;flex-direction:column;justify-content:center;gap:18px;padding:clamp(24px,4vw,48px);background:linear-gradient(180deg,#FAFAF8,#F0F1EA)}
-.look-lado h3{font-size:clamp(24px,2.6vw,32px)}
-.look-lado>p{color:var(--texto-suave);font-size:14px;max-width:380px}
-.look-itens{display:flex;flex-direction:column;gap:10px}
-.look-item{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:10px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.look-item .mini{width:64px;height:72px;border-radius:12px;overflow:hidden;flex:none;background:linear-gradient(160deg,#ECEDE6,#DCDFCF)}
-.look-item .mini img{width:100%;height:100%;object-fit:cover}
-.look-item div{flex:1;min-width:0}
-.look-item h5{font-size:13px;font-weight:700;text-transform:uppercase}
-.look-item span{font-size:12px;color:var(--texto-suave)}
-.look-item b{font-size:14px}
 
 /* ===== Faixa de diferenciais ===== */
 .diferenciais{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.dif{background:#fff;border-radius:18px;padding:20px;box-shadow:var(--sombra);display:flex;gap:14px;align-items:flex-start}
-.dif .icone{width:42px;height:42px;border-radius:12px;background:var(--verde-claro);color:var(--verde);display:grid;place-items:center;flex:none}
+.dif{background:var(--card);border:1px solid var(--borda);border-radius:18px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s,transform .2s}
+.dif:hover{border-color:var(--verde);transform:translateY(-2px)}
+.dif .icone{width:42px;height:42px;border-radius:12px;background:rgba(122,139,48,.18);color:var(--destaque);display:grid;place-items:center;flex:none}
 .dif .icone svg{width:22px;height:22px}
 .dif h5{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
 .dif p{font-size:12.5px;color:var(--texto-suave);margin-top:2px}
 
 /* ===== Chamada final ===== */
-.cta{background:var(--preto);color:#fff;border-radius:var(--raio);padding:clamp(32px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;background:var(--verde);transform:skewX(-20deg);opacity:.9}
+.cta{background:var(--cta-bg);border:1px solid var(--borda);color:#fff;border-radius:var(--raio);padding:clamp(32px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;right:-60px;top:-60px;width:340px;height:340px;background:var(--verde);transform:skewX(-20deg);opacity:.9}
 .cta>*{position:relative}
 .cta h3{font-size:clamp(26px,3.6vw,44px)}
 .cta h3 span{color:var(--verde-medio)}
-.cta p{color:#bbb;margin-top:8px;max-width:460px}
+.cta p{color:rgba(255,255,255,.68);margin-top:8px;max-width:460px}
 
 /* ===== Rodapé ===== */
-.rodape{margin-top:72px;padding:48px 0 28px;border-top:1px solid var(--borda)}
+.rodape{margin-top:72px;padding:48px 0 28px;border-top:1px solid var(--borda);background:var(--rodape-bg)}
 .rodape-grade{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px}
-.rodape img.logo{height:54px;width:auto;mix-blend-mode:multiply;margin-bottom:12px}
+.rodape img.logo{height:56px;width:auto;margin-bottom:12px}
 .rodape p{font-size:13px;color:var(--texto-suave)}
-.rodape h6{font-family:Archivo,sans-serif;font-weight:800;font-stretch:115%;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.rodape h6{font-family:Archivo,sans-serif;font-weight:800;font-stretch:115%;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;color:var(--texto)}
 .rodape ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .rodape li a,.rodape li{font-size:13px;color:var(--texto-suave)}
-.rodape li a:hover{color:var(--verde)}
+.rodape li a:hover{color:var(--destaque)}
 .redes{display:flex;gap:10px;margin-top:14px}
-.redes a{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--borda);display:grid;place-items:center;transition:all .2s}
-.redes a:hover{background:var(--verde);color:#fff;border-color:var(--verde)}
+.redes a{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--borda);display:grid;place-items:center;transition:all .2s}
+.redes a:hover{background:var(--verde);border-color:var(--verde);color:#fff}
 .redes svg{width:18px;height:18px}
 .direitos{margin-top:40px;padding-top:20px;border-top:1px solid var(--borda);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--texto-suave)}
 
 /* ===== Botão flutuante WhatsApp ===== */
-.zap-flutuante{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.45);transition:transform .2s}
+.zap-flutuante{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.4);transition:transform .2s}
 .zap-flutuante:hover{transform:scale(1.08)}
 .zap-flutuante svg{width:30px;height:30px}
 .zap-flutuante::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:pulso 2s infinite}
@@ -221,26 +175,28 @@ a{color:inherit;text-decoration:none}
   .rodape-grade{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
-  .menu nav{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;gap:0;background:#fff;border-radius:18px;box-shadow:var(--sombra-forte);padding:8px;display:none}
+  .menu nav{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;gap:0;background:var(--card);border:1px solid var(--borda);border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,.5);padding:8px;display:none}
   .menu nav.aberto{display:flex}
   .menu nav a{padding:14px 16px;border-radius:12px}
-  .menu nav a:hover{background:var(--fundo)}
+  .menu nav a:hover{background:var(--card-2)}
   .btn-menu{display:block}
   .menu .pilula .txt{display:none}
   .menu .pilula{padding:10px}
   .menu .logo img{height:32px}
-  .bento{grid-template-columns:1fr}
-  .bento .alto{grid-row:auto;min-height:480px}
-  .look{grid-template-columns:1fr}
-  .look .card-foto{min-height:420px}
-  .trilho{grid-auto-columns:72%}
   .card-foto .conteudo{padding:22px}
-  .hero .botoes{flex-direction:column}
+  .hero .botoes{flex-direction:column;align-items:flex-start}
+  .mosaico{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .mosaico .alto,.mosaico .largo2{grid-column:span 2;grid-row:auto}
+  .mosaico .alto{min-height:460px}
+  .mosaico .card-foto{min-height:300px}
   .cta::before{width:200px;height:200px;right:-80px;top:-80px}
 }
 @media (max-width:480px){
   .diferenciais{grid-template-columns:1fr}
   .rodape-grade{grid-template-columns:1fr}
+  .mosaico{grid-template-columns:1fr}
+  .mosaico .card-foto,.mosaico .alto,.mosaico .largo2{grid-column:auto;min-height:340px}
+  .mosaico .alto{min-height:440px}
 }
 </style>
 </head>
@@ -250,13 +206,13 @@ a{color:inherit;text-decoration:none}
 
 <!-- ===== MENU ===== -->
 <header class="topo container">
-  <div class="menu" style="position:relative">
-    <a href="#inicio" class="logo" aria-label="Distrito Fitness, início"><img src="assets/logo.png" alt="Distrito Fitness"></a>
+  <div class="menu">
+    <a href="#inicio" class="logo" aria-label="Distrito Fitness, início"><img class="logo-p-escuro" src="assets/logo-branca.png" alt="Distrito Fitness"><img class="logo-p-claro" src="assets/logo.png" alt="Distrito Fitness"></a>
     <nav id="menu-links">
-      <a href="#vitrine" data-filtro="feminino">Feminino</a>
-      <a href="#vitrine" data-filtro="masculino">Masculino</a>
-      <a href="#vitrine" data-filtro="acessorios">Acessórios</a>
-      <a href="#colecoes">Coleções</a>
+      <a href="#feminino">Feminino</a>
+      <a href="#masculino">Masculino</a>
+      <a href="#acessorios">Acessórios</a>
+      <a href="#conjuntos">Conjuntos</a>
       <a href="#contato">Contato</a>
     </nav>
     <div class="menu-acoes">
@@ -271,7 +227,7 @@ a{color:inherit;text-decoration:none}
 
 <main class="container" id="inicio">
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== BANNER PRINCIPAL ===== -->
   <section class="hero revelar">
     <div class="card-foto">
       <img src="fotos/foto-1.jpg" alt="Foto 1 · Banner principal">
@@ -280,8 +236,8 @@ a{color:inherit;text-decoration:none}
         <h1 class="titulo">Treine com<br><span>estilo</span></h1>
         <p>Roupas e acessórios fitness que acompanham cada movimento. Escolha sua peça e peça direto pelo WhatsApp.</p>
         <div class="botoes">
-          <a href="#vitrine" class="pilula" data-filtro="feminino">Ver feminino</a>
-          <a href="#vitrine" class="pilula branca" data-filtro="masculino">Ver masculino</a>
+          <a href="#" class="pilula" data-zap="Olá! Quero ver as peças femininas da Distrito Fitness.">Ver feminino</a>
+          <a href="#" class="pilula branca" data-zap="Olá! Quero ver as peças masculinas da Distrito Fitness.">Ver masculino</a>
         </div>
       </div>
     </div>
@@ -289,57 +245,39 @@ a{color:inherit;text-decoration:none}
 
   <!-- ===== MOSAICO (4 fotos) ===== -->
   <section class="secao mosaico" id="colecoes">
-    <div class="card-foto alto revelar">
+    <div class="card-foto alto revelar" id="feminino">
       <img src="fotos/foto-2.jpg" alt="Foto 2 · Linha feminina">
       <div class="conteudo">
         <h3 class="titulo">Linha<br>feminina</h3>
         <p>Leggings, tops e conjuntos que modelam e não ficam transparentes.</p>
-        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="feminino">Ver peças</a></div>
+        <div class="botoes"><a href="#" class="pilula pequena" data-zap="Olá! Quero ver a linha feminina da Distrito Fitness.">Pedir no Zap</a></div>
       </div>
     </div>
-    <div class="card-foto revelar">
+    <div class="card-foto revelar" id="masculino">
       <img src="fotos/foto-3.jpg" alt="Foto 3 · Linha masculina">
       <div class="conteudo">
         <h3 class="titulo">Linha<br>masculina</h3>
-        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="masculino">Ver peças</a></div>
+        <div class="botoes"><a href="#" class="pilula pequena" data-zap="Olá! Quero ver a linha masculina da Distrito Fitness.">Pedir no Zap</a></div>
       </div>
     </div>
-    <div class="card-foto revelar">
+    <div class="card-foto revelar" id="acessorios">
       <img src="fotos/foto-4.jpg" alt="Foto 4 · Acessórios">
       <div class="conteudo">
         <h3 class="titulo">Acessórios</h3>
-        <div class="botoes"><a href="#vitrine" class="pilula pequena preta" data-filtro="acessorios">Ver acessórios</a></div>
+        <div class="botoes"><a href="#" class="pilula pequena contorno" data-zap="Olá! Quero ver os acessórios da Distrito Fitness.">Pedir no Zap</a></div>
       </div>
     </div>
-    <div class="card-foto largo2 revelar">
+    <div class="card-foto largo2 revelar" id="conjuntos">
       <img src="fotos/foto-5.jpg" alt="Foto 5 · Conjuntos">
       <div class="conteudo">
         <h3 class="titulo">Conjuntos que combinam</h3>
         <p>Monte o seu look completo, peça por peça.</p>
-        <div class="botoes" style="flex-direction:row;flex-wrap:wrap">
+        <div class="botoes">
           <a href="#" class="pilula pequena" data-zap="Olá! Quero ver os conjuntos femininos da Distrito Fitness.">Femininos</a>
           <a href="#" class="pilula pequena branca" data-zap="Olá! Quero ver os conjuntos masculinos da Distrito Fitness.">Masculinos</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ===== VITRINE ===== -->
-  <section class="secao revelar" id="vitrine">
-    <div class="cabecalho-secao">
-      <h2 class="titulo titulo-secao">Destaques <span>da semana</span></h2>
-      <div class="setas">
-        <button class="seta" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg></button>
-        <button class="seta" data-dir="1" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></button>
-      </div>
-    </div>
-    <div class="filtros">
-      <button class="filtro ativo" data-cat="todos">Todos</button>
-      <button class="filtro" data-cat="feminino">Feminino</button>
-      <button class="filtro" data-cat="masculino">Masculino</button>
-      <button class="filtro" data-cat="acessorios">Acessórios</button>
-    </div>
-    <div class="trilho" id="trilho"></div>
   </section>
 
   <!-- ===== DIFERENCIAIS ===== -->
@@ -370,7 +308,7 @@ a{color:inherit;text-decoration:none}
   <div class="container">
     <div class="rodape-grade">
       <div>
-        <img class="logo" src="assets/logo.png" alt="Distrito Fitness">
+        <img class="logo logo-p-escuro" src="assets/logo-branca.png" alt="Distrito Fitness"><img class="logo logo-p-claro" src="assets/logo.png" alt="Distrito Fitness">
         <p>Roupas e acessórios fitness femininos e masculinos.</p>
         <div class="redes">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
@@ -379,12 +317,12 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
       <div>
-        <h6>Catálogo</h6>
+        <h6>Coleções</h6>
         <ul>
-          <li><a href="#vitrine" data-filtro="feminino">Feminino</a></li>
-          <li><a href="#vitrine" data-filtro="masculino">Masculino</a></li>
-          <li><a href="#vitrine" data-filtro="acessorios">Acessórios</a></li>
-          <li><a href="#colecoes">Coleções</a></li>
+          <li><a href="#feminino">Feminino</a></li>
+          <li><a href="#masculino">Masculino</a></li>
+          <li><a href="#acessorios">Acessórios</a></li>
+          <li><a href="#conjuntos">Conjuntos</a></li>
         </ul>
       </div>
       <div>
@@ -423,103 +361,28 @@ a{color:inherit;text-decoration:none}
    ========================================================= */
 const WHATSAPP = "5500000000000";
 
-/* =========================================================
-   PRODUTOS — edite, remova ou adicione à vontade
-   categoria: feminino | masculino | acessorios
-   tag: texto pequeno no canto da foto (ou "" pra nenhum)
-   ========================================================= */
-const PRODUTOS = [
-  {nome:"Legging Sculpt", cor:"Verde oliva", preco:"R$ 129,90", categoria:"feminino", tag:"Novo",
-   foto:"fotos/produto-1.jpg"},
-  {nome:"Camiseta Dry Fit", cor:"Preta", preco:"R$ 79,90", categoria:"masculino", tag:"Mais vendido",
-   foto:"fotos/produto-2.jpg"},
-  {nome:"Top Power", cor:"Preto", preco:"R$ 89,90", categoria:"feminino", tag:"",
-   foto:"fotos/produto-3.jpg"},
-  {nome:"Regata Performance", cor:"Verde militar", preco:"R$ 69,90", categoria:"masculino", tag:"Novo",
-   foto:"fotos/produto-4.jpg"},
-  {nome:"Conjunto Distrito", cor:"Oliva / Preto", preco:"R$ 199,90", categoria:"feminino", tag:"Lançamento",
-   foto:"fotos/produto-5.jpg"},
-  {nome:"Bermuda Treino", cor:"Preta", preco:"R$ 89,90", categoria:"masculino", tag:"",
-   foto:"fotos/produto-6.jpg"},
-  {nome:"Garrafa Térmica 1L", cor:"Preta fosca", preco:"R$ 59,90", categoria:"acessorios", tag:"",
-   foto:"fotos/produto-7.jpg"},
-  {nome:"Bolsa de Treino", cor:"Verde oliva", preco:"R$ 149,90", categoria:"acessorios", tag:"Novo",
-   foto:"fotos/produto-8.jpg"},
-];
-
-
-/* ========================================================= */
-const ICONE_ZAP = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>';
-
 const linkZap = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
-const msgProduto = p => `Olá! Vi no site e tenho interesse na peça: *${p.nome}* (${p.cor}), ${p.preco}. Tem disponível?`;
-/* Troca uma foto que não existe por um espaço numerado */
-function vagaFoto(img, titulo, nome){
-  const d = document.createElement("div");
-  d.className = "vaga-foto";
-  d.innerHTML = `<b>${titulo}</b>${nome ? `<span>${nome}</span>` : ""}<small>${img.getAttribute("src")}</small>`;
-  img.replaceWith(d);
-}
-const esc = s =>String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-function renderVitrine(cat){
-  const trilho = document.getElementById("trilho");
-  const lista = PRODUTOS.filter(p => cat === "todos" || p.categoria === cat);
-  trilho.innerHTML = lista.length ? lista.map(p => `
-    <article class="produto">
-      <div class="foto">
-        <img src="${esc(p.foto)}" alt="${esc(p.nome)}" onerror="vagaFoto(this,'Produto ${PRODUTOS.indexOf(p)+1}','${esc(p.nome)}')">
-        ${p.tag ? `<span class="tag ${p.tag === 'Novo' ? 'verde' : ''}">${esc(p.tag)}</span>` : ""}
-      </div>
-      <div class="info">
-        <h4>${esc(p.nome)}</h4>
-        <span class="cor">${esc(p.cor)}</span>
-        <div class="linha">
-          <span class="preco">${esc(p.preco)}</span>
-          <a class="pilula pequena" href="${linkZap(msgProduto(p))}" target="_blank" rel="noopener">${ICONE_ZAP}Pedir</a>
-        </div>
-      </div>
-    </article>`).join("") : `<p class="vazio">Em breve novidades nesta categoria.</p>`;
-  trilho.scrollTo({left:0});
-}
-
-function setFiltro(cat){
-  document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b.dataset.cat === cat));
-  renderVitrine(cat);
-}
-
-
-/* Links genéricos de WhatsApp */
+/* Links de WhatsApp */
 document.querySelectorAll("[data-zap]").forEach(a => {
   a.href = linkZap(a.dataset.zap); a.target = "_blank"; a.rel = "noopener";
 });
 
-/* Filtros da vitrine */
-document.querySelectorAll(".filtro").forEach(b => b.addEventListener("click", () => setFiltro(b.dataset.cat)));
-document.querySelectorAll("[data-filtro]").forEach(a => a.addEventListener("click", () => {
-  setFiltro(a.dataset.filtro);
-  document.getElementById("menu-links").classList.remove("aberto");
-}));
-
-/* Setas do carrossel */
-document.querySelectorAll(".seta").forEach(b => b.addEventListener("click", () => {
-  const t = document.getElementById("trilho");
-  t.scrollBy({left: Number(b.dataset.dir) * t.clientWidth * .8, behavior:"smooth"});
-}));
-
 /* Menu no celular */
+const nav = document.getElementById("menu-links");
 const btnMenu = document.querySelector(".btn-menu");
-btnMenu.addEventListener("click", () => {
-  const nav = document.getElementById("menu-links");
-  const aberto = nav.classList.toggle("aberto");
-  btnMenu.setAttribute("aria-expanded", aberto);
-});
-document.querySelectorAll("#menu-links a").forEach(a => a.addEventListener("click", () => document.getElementById("menu-links").classList.remove("aberto")));
+btnMenu.addEventListener("click", () => btnMenu.setAttribute("aria-expanded", nav.classList.toggle("aberto")));
+nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("aberto")));
 
-/* Banners: enquanto a foto não existir na pasta "fotos", mostra o espaço numerado */
+/* Enquanto a foto não existir na pasta "fotos", mostra o espaço numerado */
 document.querySelectorAll(".card-foto img").forEach(img => {
   const [num, nome] = img.alt.split(" · ");
-  const falhou = () => vagaFoto(img, num, nome);
+  const falhou = () => {
+    const d = document.createElement("div");
+    d.className = "vaga-foto";
+    d.innerHTML = `<b>${num}</b><span>${nome || ""}</span><small>${img.getAttribute("src")}</small>`;
+    img.replaceWith(d);
+  };
   if (img.complete && img.naturalWidth === 0) falhou(); else img.addEventListener("error", falhou);
 });
 
@@ -528,7 +391,6 @@ const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersectin
 document.querySelectorAll(".revelar").forEach(el => obs.observe(el));
 
 document.getElementById("ano").textContent = new Date().getFullYear();
-renderVitrine("todos");
 </script>
 </body>
 </html>
