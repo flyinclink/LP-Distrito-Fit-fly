@@ -8,7 +8,7 @@ BANNER PRINCIPAL
   foto-1.jpg  -> Banner principal (horizontal, grande)   ~1800 x 1000
 
 MOSAICO (logo abaixo do banner)
-  foto-2.jpg  -> Linha feminina (vertical, alta)          ~1000 x 1400
+  moda-fitness-feminina.webp -> Linha feminina (vertical)  [JÁ COLOCADA]
   foto-3.jpg  -> Linha masculina                          ~1000 x 900
   foto-4.jpg  -> Acessórios                               ~1000 x 900
   creatinas.jpg -> Suplementos / creatinas (horizontal)  ~1800 x 820  [JÁ COLOCADA]
