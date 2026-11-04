@@ -1,19 +1,15 @@
 <!doctype html>
-<html lang="pt-BR" data-tema="a">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Distrito Fitness | Roupas e Acessórios Fitness</title>
 <meta name="description" content="Distrito Fitness: roupas e acessórios fitness femininos e masculinos. Escolha sua peça e peça direto pelo WhatsApp.">
-<meta name="theme-color" content="#0C0F08">
+<meta name="theme-color" content="#E7EBDC">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>
-  /* Teste de tema: escuros ?tema=a, b, c | claros ?tema=d, e, f */
-  (function(){ try{ var t=new URLSearchParams(location.search).get("tema"); if(t) document.documentElement.dataset.tema=t; }catch(e){} })();
-</script>
 <style>
 :root{
   /* ===== CORES DA MARCA (tiradas da logo) ===== */
@@ -23,30 +19,24 @@
   --verde-medio:#A9B47A;
   --branco:#FFFFFF;
   --raio:22px;
+  /* ===== TEMA: verde sálvia claro ===== */
+  --fundo:#E7EBDC;
+  --card:#F5F7EF;
+  --card-2:#F5F7EF;
+  --borda:#D3D9C2;
+  --texto:#141810;
+  --texto-suave:#5D6650;
+  --destaque:var(--verde);
+  --cta-bg:#0B0E07;
+  --rodape-bg:rgba(0,0,0,.03);
+  --sombra-card:0 12px 32px rgba(0,0,0,.10);
+  --brilho:.10;
+  /* espaços de foto ainda vazios */
+  --vaga-1:#D5DCC2;
+  --vaga-2:#DEE4CE;
+  --vaga-num:var(--verde);
+  --vaga-etiqueta:rgba(255,255,255,.75);
 }
-/* ===== TEMAS ESCUROS (teste) ===== */
-/* A: preto esverdeado */
-html[data-tema="a"]{--fundo:#0B0E07;--card:#141A0E;--card-2:#1B2213;--borda:#273019;--texto:#F1F3EC;--texto-suave:#9CA38E;--vaga-1:#182011;--vaga-2:#1D2615}
-/* B: verde floresta bem escuro */
-html[data-tema="b"]{--fundo:#141B0C;--card:#1D2614;--card-2:#25301A;--borda:#334022;--texto:#F1F3EC;--texto-suave:#A4AC92;--vaga-1:#1F2915;--vaga-2:#25311A}
-/* C: grafite puxado pro verde */
-html[data-tema="c"]{--fundo:#1C1F19;--card:#262A22;--card-2:#2E332A;--borda:#3A4034;--texto:#F2F3EF;--texto-suave:#A6AB9D;--vaga-1:#272C22;--vaga-2:#2D3327}
-/* valores comuns dos temas escuros */
-html{--destaque:var(--verde-medio);--vaga-num:var(--verde-vivo);--vaga-etiqueta:rgba(0,0,0,.35);--rodape-bg:rgba(0,0,0,.2);--cta-bg:var(--card-2);--sombra-card:0 14px 40px rgba(0,0,0,.35);--brilho:.22}
-
-/* ===== TEMAS CLAROS (teste) ===== */
-/* D: off-white neutro (igual à referência) */
-html[data-tema="d"]{--fundo:#F4F4F1;--card:#FFFFFF;--card-2:#FFFFFF;--borda:#E3E4DE;--texto:#111311;--texto-suave:#63675C;--vaga-1:#E4E7D8;--vaga-2:#ECEEE3}
-/* E: verde sálvia claro */
-html[data-tema="e"]{--fundo:#E7EBDC;--card:#F5F7EF;--card-2:#F5F7EF;--borda:#D3D9C2;--texto:#141810;--texto-suave:#5D6650;--vaga-1:#D5DCC2;--vaga-2:#DEE4CE}
-/* F: areia / bege quente */
-html[data-tema="f"]{--fundo:#EFEBE2;--card:#FAF8F3;--card-2:#FAF8F3;--borda:#DFD9CC;--texto:#15140F;--texto-suave:#6A655A;--vaga-1:#E3DECF;--vaga-2:#EBE7DB}
-html[data-tema="d"],html[data-tema="e"],html[data-tema="f"]{--destaque:var(--verde);--vaga-num:var(--verde);--vaga-etiqueta:rgba(255,255,255,.75);--rodape-bg:rgba(0,0,0,.03);--cta-bg:#0B0E07;--sombra-card:0 12px 32px rgba(0,0,0,.10);--brilho:.10}
-
-/* Logo: versão clara no fundo escuro, original no fundo claro */
-.logo-p-claro{display:none}
-html[data-tema="d"] .logo-p-claro,html[data-tema="e"] .logo-p-claro,html[data-tema="f"] .logo-p-claro{display:block}
-html[data-tema="d"] .logo-p-escuro,html[data-tema="e"] .logo-p-escuro,html[data-tema="f"] .logo-p-escuro{display:none}
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -224,7 +214,7 @@ a{color:inherit;text-decoration:none}
 <!-- ===== MENU ===== -->
 <header class="topo container">
   <div class="menu">
-    <a href="#inicio" class="logo" aria-label="Distrito Fitness, início"><img class="logo-p-escuro" src="assets/logo-branca.png" alt="Distrito Fitness"><img class="logo-p-claro" src="assets/logo.png" alt="Distrito Fitness"></a>
+    <a href="#inicio" class="logo" aria-label="Distrito Fitness, início"><img src="assets/logo.png" alt="Distrito Fitness"></a>
     <nav id="menu-links">
       <a href="#feminino">Feminino</a>
       <a href="#masculino">Masculino</a>
@@ -326,7 +316,7 @@ a{color:inherit;text-decoration:none}
   <div class="container">
     <div class="rodape-grade">
       <div>
-        <img class="logo logo-p-escuro" src="assets/logo-branca.png" alt="Distrito Fitness"><img class="logo logo-p-claro" src="assets/logo.png" alt="Distrito Fitness">
+        <img class="logo" src="assets/logo.png" alt="Distrito Fitness">
         <p>Roupas e acessórios fitness femininos e masculinos.</p>
         <div class="redes">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>

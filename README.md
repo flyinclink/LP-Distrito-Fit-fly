@@ -7,9 +7,9 @@ Landing page / catálogo da **Distrito Fitness**: roupas e acessórios fitness, 
 ## Como editar
 
 - **Número do WhatsApp:** no `index.html`, troque `const WHATSAPP = "5500000000000"` (55 + DDD + número).
-- **Produtos:** edite a lista `PRODUTOS` no `index.html` (nome, cor, preço, categoria, tag).
+- **Oferta da Foto 5:** o texto e o preço ficam no `index.html`, no card `#suplementos`.
 - **Fotos:** salve na pasta `fotos/` com os nomes indicados em [`fotos/LEIA-ME.txt`](fotos/LEIA-ME.txt).
-- **Cores da marca:** variáveis no topo do CSS (`--preto`, `--verde`).
+- **Cores:** variáveis no topo do CSS (`--verde` da marca e o tema verde sálvia, `--fundo`, `--card`).
 
 ## Rodar localmente
 
