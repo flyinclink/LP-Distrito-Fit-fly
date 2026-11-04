@@ -11,7 +11,7 @@ MOSAICO (logo abaixo do banner)
   foto-2.jpg  -> Linha feminina (vertical, alta)          ~1000 x 1400
   foto-3.jpg  -> Linha masculina                          ~1000 x 900
   foto-4.jpg  -> Acessórios                               ~1000 x 900
-  foto-5.jpg  -> Suplementos (horizontal, larga)          ~1800 x 820  [JÁ COLOCADA]
+  creatinas.jpg -> Suplementos / creatinas (horizontal)  ~1800 x 820  [JÁ COLOCADA]
 
 
 Dica: deixe cada foto com menos de 400 KB para o site carregar rápido.
