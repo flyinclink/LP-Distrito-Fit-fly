@@ -125,6 +125,23 @@ a{color:inherit;text-decoration:none}
 .mosaico .alto{grid-row:span 2}
 .mosaico .largo2{grid-column:span 2}
 
+/* ===== Card de oferta (Foto 5: suplementos) ===== */
+.card-oferta{align-items:center}
+.card-oferta img{object-position:center 45%}
+.card-oferta::after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 30%,rgba(0,0,0,0) 48%)}
+.card-oferta .conteudo{width:auto;max-width:37%;padding-right:0}
+.mosaico .card-oferta h3.oferta{display:flex;flex-direction:column;gap:6px;font-size:inherit;overflow-wrap:normal}
+.oferta-chamada{color:#fff;font-size:clamp(14px,1.3vw,18px);line-height:1.1}
+.oferta-preco{color:#94AB3C;font-size:clamp(32px,3.3vw,46px);line-height:.9;white-space:nowrap;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.oferta-preco small{font-size:.45em;margin-right:.12em;vertical-align:.7em}
+@media (max-width:760px){
+  .card-oferta{align-items:flex-end}
+  .mosaico .card-oferta{min-height:440px;background:#0A0C07}
+  .card-oferta img{height:66%;object-position:84% center}
+  .card-oferta::after{background:linear-gradient(180deg,rgba(10,12,7,0) 46%,#0A0C07 66%)}
+  .card-oferta .conteudo{max-width:none}
+}
+
 /* ===== Faixa de diferenciais ===== */
 .diferenciais{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .dif{background:var(--card);border:1px solid var(--borda);border-radius:18px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s,transform .2s}
@@ -212,7 +229,7 @@ a{color:inherit;text-decoration:none}
       <a href="#feminino">Feminino</a>
       <a href="#masculino">Masculino</a>
       <a href="#acessorios">Acessórios</a>
-      <a href="#conjuntos">Conjuntos</a>
+      <a href="#suplementos">Suplementos</a>
       <a href="#contato">Contato</a>
     </nav>
     <div class="menu-acoes">
@@ -267,14 +284,15 @@ a{color:inherit;text-decoration:none}
         <div class="botoes"><a href="#" class="pilula pequena contorno" data-zap="Olá! Quero ver os acessórios da Distrito Fitness.">Pedir no Zap</a></div>
       </div>
     </div>
-    <div class="card-foto largo2 revelar" id="conjuntos">
-      <img src="fotos/foto-5.jpg" alt="Foto 5 · Conjuntos">
+    <div class="card-foto largo2 card-oferta revelar" id="suplementos">
+      <img src="fotos/foto-5.jpg" alt="Foto 5 · Suplementos">
       <div class="conteudo">
-        <h3 class="titulo">Conjuntos que combinam</h3>
-        <p>Monte o seu look completo, peça por peça.</p>
+        <h3 class="titulo oferta">
+          <span class="oferta-chamada">Creatinas a partir de</span>
+          <span class="oferta-preco"><small>R$</small>59,90</span>
+        </h3>
         <div class="botoes">
-          <a href="#" class="pilula pequena" data-zap="Olá! Quero ver os conjuntos femininos da Distrito Fitness.">Femininos</a>
-          <a href="#" class="pilula pequena branca" data-zap="Olá! Quero ver os conjuntos masculinos da Distrito Fitness.">Masculinos</a>
+          <a href="#" class="pilula pequena" data-zap="Olá! Vi no site as creatinas a partir de R$ 59,90. Quais vocês têm disponíveis?">Pedir no Zap</a>
         </div>
       </div>
     </div>
@@ -322,7 +340,7 @@ a{color:inherit;text-decoration:none}
           <li><a href="#feminino">Feminino</a></li>
           <li><a href="#masculino">Masculino</a></li>
           <li><a href="#acessorios">Acessórios</a></li>
-          <li><a href="#conjuntos">Conjuntos</a></li>
+          <li><a href="#suplementos">Suplementos</a></li>
         </ul>
       </div>
       <div>

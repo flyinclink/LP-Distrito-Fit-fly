@@ -11,16 +11,7 @@ MOSAICO (logo abaixo do banner)
   foto-2.jpg  -> Linha feminina (vertical, alta)          ~1000 x 1400
   foto-3.jpg  -> Linha masculina                          ~1000 x 900
   foto-4.jpg  -> Acessórios                               ~1000 x 900
-  foto-5.jpg  -> Conjuntos (horizontal, larga)            ~1800 x 900
+  foto-5.jpg  -> Suplementos (horizontal, larga)          ~1800 x 820  [JÁ COLOCADA]
 
-PRODUTOS (vitrine "Destaques da semana")  ~800 x 1000 (formato 4:5)
-  produto-1.jpg -> Legging Sculpt
-  produto-2.jpg -> Camiseta Dry Fit
-  produto-3.jpg -> Top Power
-  produto-4.jpg -> Regata Performance
-  produto-5.jpg -> Conjunto Distrito
-  produto-6.jpg -> Bermuda Treino
-  produto-7.jpg -> Garrafa Térmica 1L
-  produto-8.jpg -> Bolsa de Treino
 
 Dica: deixe cada foto com menos de 400 KB para o site carregar rápido.
