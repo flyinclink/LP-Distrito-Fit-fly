@@ -118,16 +118,17 @@ a{color:inherit;text-decoration:none}
 .card-oferta::after{background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 30%,rgba(0,0,0,0) 48%)}
 .card-oferta .conteudo{width:auto;max-width:37%;padding-right:0}
 .mosaico .card-oferta h3.oferta{display:flex;flex-direction:column;gap:6px;font-size:inherit;overflow-wrap:normal}
-.oferta-topo{color:#fff;font-size:clamp(11px,.84vw,12px);white-space:nowrap;line-height:1.1;letter-spacing:.02em;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.25);align-self:flex-start}
-.oferta-topo em{font-style:inherit;color:#94AB3C}
-.oferta-chamada{color:#fff;font-size:clamp(14px,1.3vw,18px);line-height:1.1}
-.oferta-preco{color:#94AB3C;font-size:clamp(32px,3.3vw,46px);line-height:.9;white-space:nowrap;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.oferta-topo{color:#fff;font-size:clamp(17px,1.6vw,22px);line-height:1.05;letter-spacing:.02em;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.25);align-self:flex-start}
+.oferta-topo em{font-style:inherit;color:#94AB3C;font-size:1.35em}
+.oferta-chamada{color:#fff;font-size:clamp(15px,1.45vw,20px);line-height:1.1}
+.oferta-preco{color:#94AB3C;font-size:clamp(36px,3.7vw,52px);line-height:.9;white-space:nowrap;text-shadow:0 2px 24px rgba(0,0,0,.5)}
 .oferta-preco small{font-size:.45em;margin-right:.12em;vertical-align:.7em}
+.card-oferta .botoes{margin-top:26px}
 @media (max-width:760px){
   .card-oferta{align-items:flex-end}
-  .mosaico .card-oferta{min-height:440px;background:#0A0C07}
-  .card-oferta img{height:66%;object-position:84% center}
-  .card-oferta::after{background:linear-gradient(180deg,rgba(10,12,7,0) 46%,#0A0C07 66%)}
+  .mosaico .card-foto.card-oferta{min-height:600px;background:#0A0C07}
+  .card-oferta img{height:50%;object-position:84% center}
+  .card-oferta::after{background:linear-gradient(180deg,rgba(10,12,7,0) 36%,#0A0C07 50%)}
   .card-oferta .conteudo{max-width:none}
 }
 
@@ -276,7 +277,7 @@ a{color:inherit;text-decoration:none}
       <img src="fotos/creatinas.jpg" alt="Creatinas a partir de R$ 59,90 na Distrito Fitness" width="1672" height="941" loading="lazy">
       <div class="conteudo">
         <h3 class="titulo oferta">
-          <span class="oferta-topo">Preço de <em>atacado</em> no varejo</span>
+          <span class="oferta-topo">Preço de<br><em>atacado</em><br>no varejo</span>
           <span class="oferta-chamada">Creatinas a partir de</span>
           <span class="oferta-preco"><small>R$</small>59,90</span>
         </h3>
