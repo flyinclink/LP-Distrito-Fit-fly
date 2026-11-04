@@ -4,16 +4,14 @@ COMO COLOCAR AS FOTOS DO SITE
 Salve as fotos nesta pasta com exatamente estes nomes (formato .jpg).
 Assim que o arquivo existir, a foto aparece no lugar do espaço numerado.
 
-BANNERS
-  foto-1.jpg  -> Banner principal (horizontal, grande)  ~1800 x 1000
-  foto-2.jpg  -> Linha feminina                          ~1200 x 900
-  foto-3.jpg  -> Conforto com estilo (vertical, alto)    ~1000 x 1400
-  foto-4.jpg  -> Performance no treino                   ~1200 x 900
-  foto-5.jpg  -> Conjuntos (horizontal, largo)           ~1800 x 900
-  foto-6.jpg  -> Linha masculina (vertical, alto)        ~1000 x 1400
-  foto-7.jpg  -> Feito pra suar                          ~1200 x 900
-  foto-8.jpg  -> Acessórios                              ~1200 x 900
-  foto-9.jpg  -> Monte seu look (vertical)               ~1200 x 1400
+BANNER PRINCIPAL
+  foto-1.jpg  -> Banner principal (horizontal, grande)   ~1800 x 1000
+
+MOSAICO (logo abaixo do banner)
+  foto-2.jpg  -> Linha feminina (vertical, alta)          ~1000 x 1400
+  foto-3.jpg  -> Linha masculina                          ~1000 x 900
+  foto-4.jpg  -> Acessórios                               ~1000 x 900
+  foto-5.jpg  -> Conjuntos (horizontal, larga)            ~1800 x 900
 
 PRODUTOS (vitrine "Destaques da semana")  ~800 x 1000 (formato 4:5)
   produto-1.jpg -> Legging Sculpt

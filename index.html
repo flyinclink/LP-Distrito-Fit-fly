@@ -136,6 +136,26 @@ a{color:inherit;text-decoration:none}
 .bento .card-foto{min-height:320px}
 .largo .card-foto{min-height:clamp(340px,44vw,480px)}
 
+/* ===== Mosaico de 4 fotos ===== */
+.mosaico{display:grid;grid-template-columns:1.1fr 1fr 1fr;grid-template-rows:340px 340px;gap:18px}
+.mosaico .card-foto{min-height:0}
+.mosaico .card-foto h3{font-size:clamp(22px,2.3vw,32px);overflow-wrap:anywhere}
+.mosaico .alto h3{font-size:clamp(26px,3vw,40px)}
+.mosaico .card-foto .vaga-foto{padding-top:24px}
+.mosaico .alto{grid-row:span 2}
+.mosaico .largo2{grid-column:span 2}
+@media (max-width:760px){
+  .mosaico{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .mosaico .alto,.mosaico .largo2{grid-column:span 2;grid-row:auto}
+  .mosaico .alto{min-height:460px}
+  .mosaico .card-foto{min-height:300px}
+}
+@media (max-width:480px){
+  .mosaico{grid-template-columns:1fr}
+  .mosaico .card-foto,.mosaico .alto,.mosaico .largo2{grid-column:auto;min-height:340px}
+  .mosaico .alto{min-height:440px}
+}
+
 /* ===== Monte seu look ===== */
 .look{display:grid;grid-template-columns:1.15fr 1fr;border-radius:var(--raio);overflow:hidden;background:#fff;box-shadow:var(--sombra)}
 .look .card-foto{border-radius:0;box-shadow:none;min-height:520px}
@@ -267,6 +287,43 @@ a{color:inherit;text-decoration:none}
     </div>
   </section>
 
+  <!-- ===== MOSAICO (4 fotos) ===== -->
+  <section class="secao mosaico" id="colecoes">
+    <div class="card-foto alto revelar">
+      <img src="fotos/foto-2.jpg" alt="Foto 2 · Linha feminina">
+      <div class="conteudo">
+        <h3 class="titulo">Linha<br>feminina</h3>
+        <p>Leggings, tops e conjuntos que modelam e não ficam transparentes.</p>
+        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="feminino">Ver peças</a></div>
+      </div>
+    </div>
+    <div class="card-foto revelar">
+      <img src="fotos/foto-3.jpg" alt="Foto 3 · Linha masculina">
+      <div class="conteudo">
+        <h3 class="titulo">Linha<br>masculina</h3>
+        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="masculino">Ver peças</a></div>
+      </div>
+    </div>
+    <div class="card-foto revelar">
+      <img src="fotos/foto-4.jpg" alt="Foto 4 · Acessórios">
+      <div class="conteudo">
+        <h3 class="titulo">Acessórios</h3>
+        <div class="botoes"><a href="#vitrine" class="pilula pequena preta" data-filtro="acessorios">Ver acessórios</a></div>
+      </div>
+    </div>
+    <div class="card-foto largo2 revelar">
+      <img src="fotos/foto-5.jpg" alt="Foto 5 · Conjuntos">
+      <div class="conteudo">
+        <h3 class="titulo">Conjuntos que combinam</h3>
+        <p>Monte o seu look completo, peça por peça.</p>
+        <div class="botoes" style="flex-direction:row;flex-wrap:wrap">
+          <a href="#" class="pilula pequena" data-zap="Olá! Quero ver os conjuntos femininos da Distrito Fitness.">Femininos</a>
+          <a href="#" class="pilula pequena branca" data-zap="Olá! Quero ver os conjuntos masculinos da Distrito Fitness.">Masculinos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== VITRINE ===== -->
   <section class="secao revelar" id="vitrine">
     <div class="cabecalho-secao">
@@ -283,98 +340,6 @@ a{color:inherit;text-decoration:none}
       <button class="filtro" data-cat="acessorios">Acessórios</button>
     </div>
     <div class="trilho" id="trilho"></div>
-  </section>
-
-  <!-- ===== BENTO 1 ===== -->
-  <section class="secao bento" id="colecoes">
-    <div class="card-foto revelar">
-      <img src="fotos/foto-2.jpg" alt="Foto 2 · Linha feminina">
-      <div class="conteudo">
-        <h3 class="titulo">Linha<br>feminina</h3>
-        <p>Leggings, tops e conjuntos que modelam e não ficam transparentes.</p>
-        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="feminino">Ver peças</a></div>
-      </div>
-    </div>
-    <div class="card-foto alto direita revelar">
-      <img src="fotos/foto-3.jpg" alt="Foto 3 · Conforto com estilo">
-      <div class="conteudo">
-        <h3 class="titulo">Conforto<br>com estilo</h3>
-        <p style="margin-left:auto">Do treino pro dia a dia sem trocar de roupa.</p>
-        <div class="botoes">
-          <a href="#" class="pilula pequena" data-zap="Olá! Quero ver as jaquetas e moletons da Distrito Fitness.">Jaquetas</a>
-          <a href="#" class="pilula pequena preta" data-zap="Olá! Quero ver as leggings da Distrito Fitness.">Leggings</a>
-        </div>
-      </div>
-    </div>
-    <div class="card-foto revelar">
-      <img src="fotos/foto-4.jpg" alt="Foto 4 · Performance no treino">
-      <div class="conteudo">
-        <h3 class="titulo">Performance<br>no treino</h3>
-        <div class="botoes">
-          <a href="#" class="pilula pequena branca" data-zap="Olá! Quero ver os tops da Distrito Fitness.">Ver tops</a>
-          <a href="#" class="pilula pequena" data-zap="Olá! Quero ver os shorts da Distrito Fitness.">Ver shorts</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== BANNER LARGO ===== -->
-  <section class="secao largo revelar">
-    <div class="card-foto centro">
-      <img src="fotos/foto-5.jpg" alt="Foto 5 · Conjuntos">
-      <div class="conteudo">
-        <h3 class="titulo">Conjuntos que combinam</h3>
-        <p style="margin-inline:auto">Monte o seu look completo, peça por peça.</p>
-        <div class="botoes">
-          <a href="#vitrine" class="pilula pequena" data-filtro="feminino">Conjuntos femininos</a>
-          <a href="#vitrine" class="pilula pequena preta" data-filtro="masculino">Conjuntos masculinos</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== BENTO 2 ===== -->
-  <section class="secao bento">
-    <div class="card-foto alto revelar">
-      <img src="fotos/foto-6.jpg" alt="Foto 6 · Linha masculina">
-      <div class="conteudo">
-        <h3 class="titulo">Linha<br>masculina</h3>
-        <p>Camisetas, regatas e bermudas feitas pra aguentar o treino pesado.</p>
-        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="masculino">Ver peças</a></div>
-      </div>
-    </div>
-    <div class="card-foto revelar">
-      <img src="fotos/foto-7.jpg" alt="Foto 7 · Feito pra suar">
-      <div class="conteudo">
-        <h3 class="titulo">Feito pra<br>suar</h3>
-        <p>Tecido leve e de secagem rápida.</p>
-        <div class="botoes"><a href="#" class="pilula pequena branca" data-zap="Olá! Quero ver as camisetas dry fit da Distrito Fitness.">Pedir no Zap</a></div>
-      </div>
-    </div>
-    <div class="card-foto revelar">
-      <img src="fotos/foto-8.jpg" alt="Foto 8 · Acessórios">
-      <div class="conteudo">
-        <h3 class="titulo">Acessórios</h3>
-        <p>Garrafas, bolsas, bonés e luvas pra completar o treino.</p>
-        <div class="botoes"><a href="#vitrine" class="pilula pequena" data-filtro="acessorios">Ver acessórios</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MONTE SEU LOOK ===== -->
-  <section class="secao revelar">
-    <h2 class="titulo titulo-secao">Monte <span>seu look</span></h2>
-    <div class="look">
-      <div class="card-foto">
-        <img src="fotos/foto-9.jpg" alt="Foto 9 · Monte seu look">
-      </div>
-      <div class="look-lado">
-        <h3 class="titulo">Look Distrito</h3>
-        <p>As peças desta foto. Peça o look completo ou só a peça que você quiser.</p>
-        <div class="look-itens" id="look-itens"></div>
-        <a href="#" class="pilula" id="look-zap" style="align-self:flex-start">Quero o look completo</a>
-      </div>
-    </div>
   </section>
 
   <!-- ===== DIFERENCIAIS ===== -->
@@ -482,8 +447,6 @@ const PRODUTOS = [
    foto:"fotos/produto-8.jpg"},
 ];
 
-/* Peças do "Monte seu look" (posição na lista acima, começando em 0) */
-const LOOK = [4, 2, 7];
 
 /* ========================================================= */
 const ICONE_ZAP = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>';
@@ -525,18 +488,6 @@ function setFiltro(cat){
   renderVitrine(cat);
 }
 
-function renderLook(){
-  const itens = LOOK.map(i => PRODUTOS[i]).filter(Boolean);
-  document.getElementById("look-itens").innerHTML = itens.map(p => `
-    <a class="look-item" href="${linkZap(msgProduto(p))}" target="_blank" rel="noopener">
-      <span class="mini"><img src="${esc(p.foto)}" alt="" onerror="vagaFoto(this,'P${PRODUTOS.indexOf(p)+1}')"></span>
-      <div><h5>${esc(p.nome)}</h5><span>${esc(p.cor)}</span></div>
-      <b>${esc(p.preco)}</b>
-    </a>`).join("");
-  const msg = "Olá! Quero o look completo do site:\n" + itens.map(p => `• ${p.nome} (${p.cor}) ${p.preco}`).join("\n");
-  const btn = document.getElementById("look-zap");
-  btn.href = linkZap(msg); btn.target = "_blank"; btn.rel = "noopener";
-}
 
 /* Links genéricos de WhatsApp */
 document.querySelectorAll("[data-zap]").forEach(a => {
@@ -578,7 +529,6 @@ document.querySelectorAll(".revelar").forEach(el => obs.observe(el));
 
 document.getElementById("ano").textContent = new Date().getFullYear();
 renderVitrine("todos");
-renderLook();
 </script>
 </body>
 </html>
