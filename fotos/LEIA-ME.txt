@@ -10,7 +10,7 @@ BANNER PRINCIPAL
 MOSAICO (logo abaixo do banner)
   moda-fitness-feminina.webp -> Linha feminina (vertical)  [JÁ COLOCADA]
   moda-fitness-masculina.jpg -> Linha masculina  [JÁ COLOCADA]
-  foto-4.jpg  -> Acessórios                               ~1000 x 900
+  acessorios-fitness-bolsa-luvas.jpg -> Acessórios  [JÁ COLOCADA]
   creatinas.jpg -> Suplementos / creatinas (horizontal)  ~1800 x 820  [JÁ COLOCADA]
 
 
