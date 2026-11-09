@@ -5,7 +5,7 @@ Salve as fotos nesta pasta com exatamente estes nomes (formato .jpg).
 Assim que o arquivo existir, a foto aparece no lugar do espaço numerado.
 
 BANNER PRINCIPAL
-  foto-1.jpg  -> Banner principal (horizontal, grande)   ~1800 x 1000
+  moda-fitness-p-ao-plus-size.jpg -> Banner principal  [JÁ COLOCADA]
 
 MOSAICO (logo abaixo do banner)
   moda-fitness-feminina.webp -> Linha feminina  [JÁ COLOCADA]
